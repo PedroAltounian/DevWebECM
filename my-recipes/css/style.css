@@ -1,0 +1,130 @@
+/* Faz a largura incluir o padding e a borda */
+* {
+    box-sizing: border-box;
+}
+
+/* Aparência geral */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+
+    color: #333333;
+    background-color: #eeeeee;
+
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0px 0px;
+}
+
+/* Título principal */
+h1 {
+    color: #9a3412;
+    font-size: 40px;
+    text-align: center;
+}
+
+/* Títulos das seções */
+h2,
+h3,
+h4 {
+    color: #6b3e26;
+}
+
+/* Fotografias */
+img {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+
+    margin: 24px auto 8px;
+    border-radius: 15px;
+}
+
+/* Legendas */
+figcaption {
+    color: #666666;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+/* Links */
+a {
+    color: #a33b20;
+}
+
+/* Aparência do link ao passar o mouse */
+a:hover {
+    color: #652310;
+    text-decoration: none;
+}
+
+/* Espaço entre os itens das listas */
+li {
+    margin-bottom: 8px;
+}
+
+figure {
+    margin: 0;
+}
+
+.carte {
+    background-color: #ffffff;
+    padding: 24px;
+    border: 1px solid #e5d5c5;
+    border-radius: 16px;
+    margin-bottom: 24px;
+}
+
+.carte img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin: 0;
+    border-radius: 10px;
+}
+
+.recettes {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 24px;
+    min-height: 600px;
+    border: 2px dashed #9a3412;
+}
+
+
+.carte {
+    flex: 0 1 280px;
+    min-width: 0;
+    margin-bottom: 0;
+    padding: 30px;
+}
+
+.bouton {
+    display: inline-block;
+
+    background-color: #9a3412;
+    color: #ffffff;
+
+    padding: 10px 16px;
+    border-radius: 8px;
+
+    text-decoration: none;
+}
+
+.bouton:hover {
+    background-color: #74270e;
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .recettes {
+        flex-direction: column;
+    }
+}
