@@ -1,0 +1,138 @@
+/*
+/* Inclui padding e bordas no tamanho dos elementos. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 24px 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #95a8ce, #466dc9);
+    color: #f8fafc;
+}
+
+/* Visor */
+#countLabel {
+    display: block;
+    width: min(100%, 340px);
+    min-height: 110px;
+    padding: 24px;
+
+    background-color: #0b1220;
+    border: 1px solid #334155;
+    border-bottom: none;
+    border-radius: 24px 24px 0 0;
+
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* Teclado com três colunas iguais */
+#btnContainer {
+    width: min(100%, 340px);
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+
+    background-color: #182235;
+    border: 1px solid #334155;
+    border-top: none;
+    border-radius: 0 0 24px 24px;
+
+    box-shadow: 0 24px 48px rgb(0 0 0 / 35%);
+}
+
+/* O Grid organiza as linhas sem precisar dos <br>. */
+#btnContainer br {
+    display: none;
+}
+
+/* Estilo comum a todos os botões */
+.buttons {
+    min-width: 0;
+    min-height: 64px;
+    padding: 12px;
+
+    border: none;
+    border-radius: 14px;
+
+    background-color: #2b3950;
+    color: #f8fafc;
+
+    font: inherit;
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    touch-action: manipulation;
+
+    transition:
+        background-color 150ms ease,
+        transform 150ms ease;
+}
+
+.buttons:hover {
+    background-color: #3c4e6b;
+    transform: translateY(-2px);
+}
+
+.buttons:active {
+    transform: translateY(1px);
+}
+
+/* Mostra qual botão está selecionado ao navegar com Tab. */
+.buttons:focus-visible {
+    outline: 3px solid #f8fafc;
+    outline-offset: 3px;
+}
+
+/* Operadores */
+#plusBtn,
+#minusBtn,
+#timesBtn,
+#divBtn {
+    background-color: #263d64;
+    color: #93c5fd;
+}
+
+#plusBtn:hover,
+#minusBtn:hover,
+#timesBtn:hover,
+#divBtn:hover {
+    background-color: #345384;
+}
+
+/* Botão de resultado */
+#equalBtn {
+    background-color: #34d399;
+    color: #052e24;
+}
+
+#equalBtn:hover {
+    background-color: #6ee7b7;
+}
+
+/* Respeita a preferência por menos animações. */
+@media (prefers-reduced-motion: reduce) {
+    .buttons {
+        transition: none;
+    }
+
+    .buttons:hover,
+    .buttons:active {
+        transform: none;
+    }
+}

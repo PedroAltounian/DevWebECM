@@ -22,11 +22,18 @@
     Marquer comme favori
     </button>
 
-    <p id="p1"> Olá </p>
+    <p id="p1"> Qual será o tipo de lasanha? </p>
 
-    <button id = "botao"> Clique aqui </button>
+    <button class = bouton id = "botaoFrango"> Frango </button>
+    <button class = bouton id = "botaoBolonhesa"> Bolonhesa </button>
+    <br>
 
-    <p id="mensagem">Cette recette n'est pas dans vos favoris.</p>
+    <label for="quantidade">Para quantas pessoas?:</label>
+    <input type="number" id="quantidade" name="quantidade" min="0" max="100" step="1">
+    <button id = "botaoPessoas"> Submeter </button>
+
+
+    <p id="p_preco">O preço total dos ingredientes será: .</p>
 
     <h4>Ingrédients</h4>
     <ul>

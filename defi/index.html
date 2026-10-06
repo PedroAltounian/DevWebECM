@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de compras</title>
+
+    <style>
+      body {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 0 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      li {
+        margin-bottom: 12px;
+      }
+
+      li button {
+        margin-left: 15px;
+      }
+
+      button {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Minha lista de compras</h1>
+
+    <label for="produto">Novo produto:</label>
+    <input type="text" id="produto">
+
+    <button id="adicionar" type="button">Adicionar</button>
+
+    <ul id="lista"></ul>
+
+    <script>
+      // Referências aos elementos que já existem na página.
+      const lista = document.getElementById("lista");
+      const campo = document.getElementById("produto");
+      const botaoAdicionar = document.getElementById("adicionar");
+
+      function adicionarProduto() {
+        // Guarda o texto antes de limpar o campo.
+        const nomeProduto = campo.value.trim();
+        campo.value = "";
+
+        // Evita adicionar um produto vazio.
+        if (nomeProduto === "") {
+          campo.focus();
+          return;
+        }
+
+        // Cria os elementos do novo produto.
+        const item = document.createElement("li");
+        const texto = document.createElement("span");
+        const botaoExcluir = document.createElement("button");
+
+        // Define o conteúdo.
+        texto.textContent = nomeProduto;
+        botaoExcluir.textContent = "Excluir";
+        botaoExcluir.type = "button";
+
+        // Monta o item e o insere na lista.
+        item.appendChild(texto);
+        item.appendChild(botaoExcluir);
+        lista.appendChild(item);
+
+        // Este botão exclui este item.
+        botaoExcluir.addEventListener("click", function() {
+          item.remove();
+        });
+
+        // Devolve o cursor ao campo.
+        campo.focus();
+      }
+
+      botaoAdicionar.addEventListener("click", adicionarProduto);
+    </script>
+  </body>
+</html>

@@ -1,15 +1,50 @@
 console.log("JavaScript conectado!");
 
-const nomeReceita = "Lasagne";
+function calcularPreco(numPessoas, tipoDaLasanha) {
+    let precoPorPessoa;
 
-let username;
+    if (tipoDaLasanha === "Frango") {
+        precoPorPessoa = 20;
+    } else {
+        precoPorPessoa = 30;
+    }
 
-console.log(nomeReceita);
-
-username = window.prompt("Qual é seu nome?")
-
-console.log(username)
-
-document.getElementById("botao").onclick = function(){
-    document.getElementById("p1").textContent = "Hello, " + username + ", você gosta de lasanha?";
+    return precoPorPessoa * numPessoas;
 }
+
+// Guarda a escolha entre os cliques.
+let tipoSelecionado = "";
+
+const botaoFrango = document.getElementById("botaoFrango");
+const botaoBolonhesa = document.getElementById("botaoBolonhesa");
+const botaoPessoas = document.getElementById("botaoPessoas");
+const campoQuantidade = document.getElementById("quantidade");
+const resultado = document.getElementById("p_preco");
+
+botaoFrango.onclick = function() {
+    tipoSelecionado = "Frango";
+    resultado.textContent = "Lasanha de frango selecionada.";
+};
+
+botaoBolonhesa.onclick = function() {
+    tipoSelecionado = "Bolonhesa";
+    resultado.textContent = "Lasanha à bolonhesa selecionada.";
+};
+
+botaoPessoas.onclick = function() {
+    const numeroPessoas = Number(campoQuantidade.value);
+
+    if (tipoSelecionado === "") {
+        resultado.textContent = "Escolha o tipo da lasanha primeiro.";
+        return;
+    }
+
+    if (!Number.isInteger(numeroPessoas) || numeroPessoas <= 0) {
+        resultado.textContent = "Digite uma quantidade inteira maior que zero.";
+        return;
+    }
+
+    const total = calcularPreco(numeroPessoas, tipoSelecionado);
+
+    resultado.textContent = `O preço total será de R$ ${total.toFixed(2)}.`;
+};
